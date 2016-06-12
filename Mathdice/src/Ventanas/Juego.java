@@ -28,8 +28,6 @@ import java.awt.Dimension;
 
 public class Juego extends JPanel{
 	
-	private Jugador p;
-	
 	private JPanel contentPane;
 	boolean comprobar = true; //para comprobar si se introduce número o signo +-
 	private String a;// para enviar a la caja de texto cada número pulsado
@@ -83,18 +81,16 @@ public class Juego extends JPanel{
 	/**
 	 * Create the frame.
 	 */
-
+	
 	public Juego() {
 
 		setLayout(null);
 		
 		//Etiqueta Saludo
-		etiquetaSaludo = new JLabel("");
+		etiquetaSaludo = new JLabel();
+		etiquetaSaludo.setText("BIENVENID@ AL JUEGO");
 		etiquetaSaludo.setBounds(550, 13, 258, 16);
 		add(etiquetaSaludo);
-		
-		
-		
 
 		//Etiqueta texto donde se introducen las sumas y restas
 		etiquetaoperaciones = new JTextField();
@@ -351,6 +347,7 @@ public class Juego extends JPanel{
 		
 			
 	}
+	
 		
 	
 				//Implementación MouseListener a traves de Inner Class
@@ -399,15 +396,10 @@ public class Juego extends JPanel{
 							
 						}
 						
-						
-					
 		
 		}
-					//METODO PARA SACAR NOMBRE SALUDO
-					public void setJugador(Jugador p){
-						this.p=p;
-						etiquetaSaludo.setText("BIENVENIDO AL JUEGO: "+p.getNombre());
-					}
+
+								
 }
 
 	

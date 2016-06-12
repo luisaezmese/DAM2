@@ -147,6 +147,8 @@ public class Registro extends JFrame{
 							Perfil.CajaApellido1.setText(textoApellido1.getText());
 							Perfil.CajaApellido2.setText(textoApellido2.getText());
 							Perfil.CajaEdad.setText(textoEdad.getText());
+							
+							
 						}
 					}
 				});
@@ -158,9 +160,9 @@ public class Registro extends JFrame{
 			textoDatos.setText(db.conectar());
 			udb = new JugadorDB(db.getConexion());
 			
-	
+			
 			
 		
 	}
-
+	
 }

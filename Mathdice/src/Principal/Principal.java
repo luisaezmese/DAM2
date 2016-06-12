@@ -1,5 +1,6 @@
 package Principal;
 
+import Juego.Jugador;
 import Ventanas.Login;
 
 
@@ -13,8 +14,6 @@ public class Principal {
 	 */
 	public static void main(String[] args) {
 		
-			//Juego juego1 = new Juego();
-			//Registro ventana = new Registro();
 			Login ventanaLogin = new Login();
 			ventanaLogin.setVisible(true);
 		

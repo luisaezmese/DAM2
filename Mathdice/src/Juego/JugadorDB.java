@@ -107,54 +107,6 @@ public class JugadorDB{
 					}
 					
 				}
-			
-				
-			public Jugador buscarUsuario2(int id){
-					ResultSet rs;
-					Jugador u=new Jugador();
-					try{
-					  orden = conexion.createStatement();
-				      String sql = "SELECT id, nombre, apellido1, apellido2, edad FROM usuarios WHERE id="+id+"'";
-				      rs = orden.executeQuery(sql);
-				      //Cogemos los usuarios
-				      while(rs.next()){
-				    	  u.setId(rs.getInt("id"));
-					      u.setNombre(rs.getString("nombre"));
-					      u.setApellido1(rs.getString("apellido1"));
-					      u.setApellido2(rs.getString("apellido2"));
-					      u.setEdad(rs.getInt("edad"));    
-				      }
-				      
-				      //Debemos cerrar la conexion
-				      rs.close();
-				      return u;
-					}catch(SQLException se){
-						      //Se produce un error con la consulta
-						      se.printStackTrace();
-						      return u;
-					}catch(Exception e){
-						      //Se produce cualquier otro error
-						      e.printStackTrace();
-						      return u;
-					}finally{
-					      //Cerramos los recursos
-					      try{
-					         if(orden!=null)
-					        	 conexion.close();
-					      }catch(SQLException se){
-					      }
-					      try{
-					         if(conexion!=null)
-					        	 conexion.close();
-					      	 }catch(SQLException se){
-					         se.printStackTrace();
-					      	 }//end finally try
-					}
-					
-				}
-
-			
-				
 				
 				
 

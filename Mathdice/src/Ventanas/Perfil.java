@@ -17,7 +17,6 @@ public class Perfil extends JPanel {
 	static JTextField CajaApellido2;
 	static JTextField CajaNombre;
 	JLabel imagenPerfil;
-	private Jugador j1;
 
 	/**
 	 * Create the panel.
@@ -89,9 +88,10 @@ public class Perfil extends JPanel {
 	public void rellenaDatos(Jugador j1){
 		
 		CajaNombre.setText(j1.getNombre());
-		CajaApellido1.setText("");
-		CajaApellido2.setText("");
-		CajaEdad.setText("");
+		CajaApellido1.setText(j1.getApellido1());
+		CajaApellido2.setText(j1.getApellido2());
+		CajaEdad.setText(String.valueOf(j1.getEdad()));
 	
 	}
+	
 }

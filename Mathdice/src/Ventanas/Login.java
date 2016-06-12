@@ -39,9 +39,9 @@ public class Login extends JFrame {
 	//Cerrar ventana login
 	private Login cerrar;
 	
+	//Ventana Contenedor
 	private Contenedor conten1;
 	
-	private int idUsuarioSeleccionado;
 	
 	
 	
@@ -72,15 +72,9 @@ public class Login extends JFrame {
 		JButton botonEntrar = new JButton("ENTRAR");
 		botonEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				conten1= new Contenedor();
-				conten1.setVisible(true);
-				idUsuarioSeleccionado= comboBox.getSelectedIndex();
-				Jugador a=udb.buscarUsuario2(idUsuarioSeleccionado);
-				//Enviamos los  datos a Perfil
-				Perfil.CajaNombre.setText(a.getNombre());
-				Perfil.CajaApellido1.setText("1");
-				Perfil.CajaApellido2.setText("2");
-				Perfil.CajaEdad.setText("3");
+				conten1= new Contenedor();//Creamos Contenedor
+				conten1.setVisible(true);//Hacemos visible la ventana Contenedor
+				p1.rellenaDatos(j1);//Rellenamos datos de Perfil
 			}
 		});
 		botonEntrar.setBounds(142, 106, 97, 25);
@@ -100,13 +94,11 @@ public class Login extends JFrame {
 		
 		//LISTA USUARIOS JCOMBOBOX
 		comboBox = new JComboBox();
-		//comboBox.addActionListener(new ActionListener() {
-			//public void actionPerformed(ActionEvent arg0) {
-				//idUsuarioSeleccionado= comboBox.getSelectedIndex()+1;
-				//udb.buscarUsuario2(idUsuarioSeleccionado);	
-				
-	//		}
-		//});
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				j1= (Jugador)comboBox.getSelectedItem();
+			}
+		});
 		comboBox.setBounds(134, 21, 259, 22);
 		contentPane.add(comboBox);
 		
@@ -121,8 +113,9 @@ public class Login extends JFrame {
 		//Añadimos todos los usuarios de la BBDD
 		udb.buscarUsuario(comboBox);
 		
-		
 	}
-
+	
+	Jugador j1 = new Jugador();
+	Perfil p1 = new Perfil ();
 }
 
